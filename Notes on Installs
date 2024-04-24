@@ -1,0 +1,28 @@
+
+
+--------------------------------------
+
+New notes on setup with Github
+--Pi-Codec is a submodule that can be installed with 
+	git submodule add https://github.com/raspberrypi/Pi-Codec
+--When using this for the first time, you need to generate the virtual environment and install the necessary packages:
+	python3 -m venv .venv
+	source ./venv/bin/activate
+	pip install -r requirements.txt
+--If you add new package requirements, add them to the requirements.txt file using
+	pip3 freeze > requirement.txt
+
+
+--------------------------------------
+
+
+
+OLD NOTES:
+When installing sense-hat in the virtual environement, it seems like the required package RTIMU doens't get installed. I followed these instructions after sourcing the virtual environment to get the RTIMU installed: https://github.com/astro-pi/python-sense-hat/issues/58#issuecomment-374414765
+
+
+When trying to get the GPIO input/outputs working I discovered the the RPi.GPIO python package isn't compatible with RPI5. The gpiozero package seems to work with the RPI5, but there requires that the lgpio package is installed for the 'pin_factory' of gpiozero. The lgpio package comes with the native pyhton install, but when trying to install it in a venv it installs with version 0.0.0.2 not what is in the native python install (version 0.2.2.0). I found others with this same issue. https://github.com/gpiozero/gpiozero/issues/1038
+For now I think I'll just work outside of a venv.
+
+I ended up using a virtual environment with access to system site package so it could access the gpiozero that came natively on the RPI5. To do this, when you create your venv, use the following command: $ python3 -m venv .venv --system_site_packages
+The .venv is what you name the venv. 
