@@ -30,6 +30,7 @@ sudo crontab -e
 ```
 Once in the file add the following:
 ```
+@reboot /bin/sleep 10; /home/dasl/repos/boring_recorder/recorderLaunch.sh  >> /home/dasl/repos/boring_recorder/mycrontablog.txt 2>&1
 ```
 
 ### Notes on modifications of python packages or submodules
