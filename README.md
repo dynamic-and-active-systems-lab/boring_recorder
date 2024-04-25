@@ -2,7 +2,7 @@
 An RPI audio recorder
 
 ### Hardware
-This system expects the [RPI Relay Board](https://www.waveshare.com/wiki/RPi_Relay_Board) and the [CodecZero](https://www.raspberrypi.com/documentation/accessories/audio.html) to be installed on the RPI. The relay board should be wired to provide 27 V to the PCB signal conditioner as shown in the image. 
+This system expects the [RPI Relay Board](https://www.waveshare.com/wiki/RPi_Relay_Board) and the [CodecZero](https://www.raspberrypi.com/documentation/accessories/audio.html) to be installed on the RPI. The relay board should be wired to provide 27 V to the PCB signal conditioner as shown in the wiring image in the repo. Also, it is critical that the [RTC battery be installed and the RPI set up to charge the battery](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc).
 
 ### Pre-reqs
 1. Create a repos directory on your RPI in your home folder:
@@ -38,6 +38,10 @@ Once in the file add the following:
 	`pip3 freeze > requirement.txt`
 2. Note on initial setup: to add other submodules, use
 `git submodule add <webaddress_of_git_repo>`
+
+
+### Wiring image
+![wiring_image](https://github.com/dynamic-and-active-systems-lab/boring_recorder/blob/main/wiring_setup.jpg)
 
 
 
