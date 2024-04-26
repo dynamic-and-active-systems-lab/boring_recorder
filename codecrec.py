@@ -7,6 +7,7 @@ import time
 from datetime import datetime
 from gpiozero import LED
 from gpiozero import Button
+import sys
 
 #sense = SenseHat()
 #GPIO Pin Numers (BCM not Board Pins nums) 
@@ -100,6 +101,16 @@ codecButton.when_pressed = setHaltFlag
 
 if __name__=="__main__":
     recordingDir = "/home/dasl/Desktop/Recordings"
+    recordingDuration = sys.argv[1]
+    if len(sys.argv)>2:
+        recordingInterval = sys.argv[2]
+    else:
+        recordingInterval = 0
+    
+    print(sys.argv[0])
+    print("Duration="+str(recordingDuration))
+    print("Interval="+str(recordingInterval))
+
     setupRecordingFolder(recordingDir)
     #print("Program initialized. Sleeping for 10 s to enable joystick execution termination.")
     #time.sleep(2)
@@ -115,14 +126,13 @@ if __name__=="__main__":
     # redLED.off()
     fullPathName = recordingDir+"/"+fileName
     setdeviceparameters(4)
-    makewavefile(48000, 60, 1, fullPathName)
+    makewavefile(48000, recordingDuration, 1, fullPathName)
     #setdeviceparameters(2)
     #playwavefile(fullPathName)
     time.sleep(5)
-    if haltFlag:
+    if haltFlag or recordingInterval == 0:
         print("Exiting Program - Halt Flag Set")
         exit(1)
-    setnextwakeup(600)
-    shutdownsystem()
-
-
+    else:
+        setnextwakeup(recordingInterval)
+        shutdownsystem()
