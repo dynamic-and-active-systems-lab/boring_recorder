@@ -5,6 +5,7 @@
 
 #Zip up all the files
 zipName=$(date +/home/dasl/Desktop/%Y_%m_%d-%H_%M_%S.zip)
+echo ARCHIVING RECORDINGS TO $zipName
 zip $zipName /home/dasl/Desktop/Recordings/*
 zip -ur $zipName /home/dasl/repos/boring_recorder/mycrontablog.txt
 #Trash the old files and clear out the log file 
