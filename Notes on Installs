@@ -12,6 +12,9 @@ New notes on setup with Github
 --If you add new package requirements, add them to the requirements.txt file using
 	pip3 freeze > requirement.txt
 
+--If you clone this SDcard and put it in another RPI, you will need to enable the RTC low power mode for the RPI and the wake on GPIO using the following instructions: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc
+
+
 
 --------------------------------------
 

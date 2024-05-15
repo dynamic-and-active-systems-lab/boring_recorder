@@ -26,7 +26,7 @@ relayCh1 = LED(relayChannel1)
 relayCh1.on() #Energize to turn off voltage to signal conditioner
 codecButton = Button(codecSwitch)
 
-primaryPath = "/home/dasl/code/audioRecorder/"
+primaryPath = "/home/dasl/repos/boring_recorder/"
 
 # 
 def makewavefile(fs = 48000, duration=5, channels = 1, filename="test.wav"):
