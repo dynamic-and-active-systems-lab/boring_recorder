@@ -4,4 +4,4 @@
 #a permission denied error.
 
 source /home/dasl/repos/boring_recorder/.venv/bin/activate
-sudo python3 /home/dasl/repos/boring_recorder/codecrec.py 10 300
+sudo python3 /home/dasl/repos/boring_recorder/codecrec.py 30 300
