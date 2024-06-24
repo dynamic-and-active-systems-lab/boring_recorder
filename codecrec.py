@@ -31,10 +31,10 @@ primaryPath = "/home/dasl/repos/boring_recorder/"
 # 
 def makewavefile(fs = 48000, duration=5, channels = 1, filename="test.wav"):
     relayCh1.off() #Denergize to turn on voltage to signal conditioner
-    time.sleep(3) #give voltage in signal condition time to settle
+    time.sleep(5) #give voltage in signal condition time to settle
     print('Recording')
     redLED.on()
-    recordString = "arecord -D 'plughw:CARD=IQaudIOCODEC,DEV=0' -t wav -c "+str(int(channels))+" -f dat -d " + str(duration) + " " + filename
+    recordString = "arecord -D 'plughw:CARD=IQaudIOCODEC,DEV=0' -t wav -r "+str(int(fs))+" -c "+str(int(channels))+" -f S24_LE -d " + str(duration) + " " + filename
     os.system(recordString)
     print(recordString)
     relayCh1.on() #Denergize to turn on voltage to signal conditioner
@@ -126,7 +126,7 @@ if __name__=="__main__":
     # redLED.off()
     fullPathName = recordingDir+"/"+fileName
     setdeviceparameters(4)
-    makewavefile(48000, recordingDuration, 1, fullPathName)
+    makewavefile(96000, recordingDuration, 1, fullPathName)
     #setdeviceparameters(2)
     #playwavefile(fullPathName)
     time.sleep(5)
