@@ -43,5 +43,10 @@ Once in the file add the following:
 ### Wiring image
 ![wiring_image](https://github.com/dynamic-and-active-systems-lab/boring_recorder/blob/main/wiring_setup.jpg)
 
+### Notes on RPI Pins Usage
+The relay board documentation can be found [here](https://www.waveshare.com/wiki/RPi_Relay_Board). It states states that the communication occurs on RPI pins 37, 38, and 40 (BCM no. 26, 20, and 21, respectively). 
 
+The Codec Zero board documentation can be foudn [here](https://cdn.shopify.com/s/files/1/0174/1800/files/iqaudio-product-brief.pdf?v=1607939668). It states  that the communication occurs on RPI pins 3, 5, 12, 35, 38, 40 (GPIO 2, 3, 18, 19, 20, and 21). 
+
+There is a conflict of RPI Pins 38 and 40 between these two boards. The scripts in this repo currently only use the pin 37 relay channel to turn on and off the peripheral signal conditioner. The using the other channels have not been tested and could cause problems. This is noted in the code. 
 
